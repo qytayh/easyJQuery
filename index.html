@@ -11,15 +11,37 @@
             height: 100px;
             background: red;
         }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background: blue;
+        }
     </style>
 </head>
 <body>
     <div class="box1"></div>
+    <div class="box2"></div>
 </body>
 <script>
+    //方式一
     $('.box1').click(function(){
         console.log('....')
     })
+    //方式二
+    $(function(){
+        console.log('11111')
+    })
+    //方式三
+    $(document.querySelector('.box2')).click(function(){
+        console.log("click",$(document.querySelector('.box2')))
+    })
+    //方式四  链式操作
+    $('div').eq(0).click(function(){
+        console.log('eq...')
+    })
+    // end()  获取到上次操作的节点对象
+    console.log($("div").eq(0).end())
+
 
 </script>
 </html>
