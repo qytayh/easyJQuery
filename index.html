@@ -24,24 +24,51 @@
 </body>
 <script>
     //方式一
-    $('.box1').click(function(){
-        console.log('....')
-    })
+    // $('.box1').click(function(){
+    //     console.log('....')
+    // })
     //方式二
-    $(function(){
-        console.log('11111')
-    })
+    // $(function(){
+    //     console.log('11111')
+    // })
     //方式三
-    $(document.querySelector('.box2')).click(function(){
-        console.log("click",$(document.querySelector('.box2')))
-    })
+    // $(document.querySelector('.box2')).click(function(){
+    //     console.log("click",$(document.querySelector('.box2')))
+    // })
     //方式四  链式操作
-    $('div').eq(0).click(function(){
-        console.log('eq...')
-    })
+    // $('div').eq(0).click(function(){
+    //     console.log('eq...')
+    // })
     // end()  获取到上次操作的节点对象
-    console.log($("div").eq(0).end())
+    // console.log($("div").eq(0).end())
 
+    // $('div').on("mouseover mousedown",function(){
+    //     console.log("mouseover mousedown")
+    // })
+
+    //css样式
+    // 用法一
+    // console.log($('div').css("background"))
+    //用法二
+    // $('div').css("width","200px")
+    // $('div').css("width","200px")
+    // 用法三
+    // $('div').css({"width":"200px","height":"200px"})
+
+
+    //cssHooks
+    // 例:  "wh"  ---->  既设置高度又设置宽度
+    $.cssHooks['wh'] = {
+        get(ele){
+            return ele.offsetWidth+' '+ele.offsetHeight
+        },
+        set(ele,value){
+            ele.style.width = value;
+            ele.style.height = value
+        }
+    }
+    $("div").css('wh','200px')
+    // console.log()
 
 </script>
 </html>
